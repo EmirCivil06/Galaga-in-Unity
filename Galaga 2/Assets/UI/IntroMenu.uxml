@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/IntroMenu.uss?fileID=7433441132597879392&amp;guid=8db01b3857ee8854fba970b6ed530332&amp;type=3#IntroMenu" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; align-self: center; justify-content: center; align-items: center; align-content: center; width: 100%; background-color: rgba(0, 0, 0, 0.8);">
+        <ui:Label text="GALAGA 2" name="Title" style="height: 135px; font-size: 100px; color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Assets/2D%20Graphics/GALACTIC.TTF?fileID=12800000&amp;guid=8db854e0b9ac5cf4a9bca23aa1755142&amp;type=3#GALACTIC&quot;); align-self: center; -unity-text-align: upper-center; -unity-font-style: bold;" />
+        <ui:VisualElement name="Buttons" style="flex-grow: 0.5; width: 30%; height: 30%; align-self: center; justify-content: space-around; align-items: center; align-content: center; background-size: 100% 20%; position: relative; flex-shrink: 0.3; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+            <ui:Button text="Start" name="Start" class="button" />
+            <ui:Button text="Settings" name="Settings" class="button" />
+            <ui:Button text="Quit" name="Quit" class="button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

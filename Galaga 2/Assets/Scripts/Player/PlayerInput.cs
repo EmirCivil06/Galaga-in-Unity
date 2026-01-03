@@ -3,18 +3,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
-
+    [Header("Hareket Kontrolü")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
     private Vector2 moveDirection;
     [SerializeField] private InputActionReference moveAction;
+    [Header("Saldırı Kontrolü")]
     [SerializeField] private InputActionReference attackAction;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireRate = 0.2f;
+    [Header("Ortam Değişkenleri")]
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Renderer Renderer;
+    [Header("Manager'lar")]
     [SerializeField] private ObjectPoolManager objectPoolManager;
+    [SerializeField] private GameManager gameManager;
     private float currentCooldown;
 
 
@@ -49,8 +53,11 @@ public class PlayerInput : MonoBehaviour
 
     private void Shoot()
     {
-        SoundManager.PlaySound(SoundType.Shoot, 0.5f);
-        objectPoolManager.ActivateObject(bulletPrefab, firePoint.position, firePoint.rotation);
+        if (!gameManager.isPaused)
+        {
+            SoundManager.PlaySound(SoundType.Shoot, 0.5f);
+            objectPoolManager.ActivateObject(bulletPrefab, firePoint.position, firePoint.rotation);
+        }
     }
 
     private void FixedUpdate()
