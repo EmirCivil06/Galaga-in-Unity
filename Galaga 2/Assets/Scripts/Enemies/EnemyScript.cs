@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    [SerializeField] private ObjectPoolManager objectPoolManager;
+    private ObjectPoolManager objectPoolManager;
+    public int health;
+    [SerializeField] private PlayerData player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -12,13 +14,18 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Projectile")
         {
-            objectPoolManager.DeactivateObject(collision.gameObject); 
+            health -= player.damage;
+            objectPoolManager.DeactivateObject(collision.gameObject);
+            if (health <= 0)
+            {
+                Debug.Log("Dead!");
+            }
         }
     }
 }
