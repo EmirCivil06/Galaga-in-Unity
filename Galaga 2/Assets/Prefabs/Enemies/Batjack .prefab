@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
   health: 50
-  player: {fileID: 11400000, guid: c9b4e50a4af1be94ba0b34b04546e86c, type: 2}
+  playerData: {fileID: 11400000, guid: c9b4e50a4af1be94ba0b34b04546e86c, type: 2}
 --- !u!50 &1893843474038651175
 Rigidbody2D:
   serializedVersion: 5

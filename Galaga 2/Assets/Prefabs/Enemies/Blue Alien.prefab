@@ -75,7 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684c21ddd2b4856428bb71b2f2d4d4c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
-  objectPoolManager: {fileID: 0}
+  health: 0
+  playerData: {fileID: 11400000, guid: c9b4e50a4af1be94ba0b34b04546e86c, type: 2}
 --- !u!60 &9037845362998804965
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class MovingBackground : MonoBehaviour
 {
+    // Hareket eden arkaplan için script
     [SerializeField] private float speed;
     [SerializeField] private Renderer bgRenderer;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     // Update is called once per frame
     void Update()

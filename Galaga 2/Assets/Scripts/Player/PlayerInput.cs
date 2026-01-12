@@ -65,6 +65,7 @@ public class PlayerInput : MonoBehaviour
         rb.linearVelocity = moveDirection * speed;
     }
 
+    // Oyuncunun kamera kapsamı dışına çıkmasını engellemek için LateUpdate içine mantık ifadeleri
     private void LateUpdate()
     {
         float vert = mainCamera.orthographicSize;
