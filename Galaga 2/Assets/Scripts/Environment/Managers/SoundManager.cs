@@ -2,12 +2,10 @@ using UnityEngine;
 
 public enum SoundType
 {
-    Shoot,
-    Click,
-    Explosion,
-    PowerUp,
-    GameOver,
-    GameStart,
+    PlayerShoot,
+    BJackPrepare,
+    BJackShoot,
+    BJackDie
 }
 
 

@@ -1,7 +1,8 @@
 
 public interface IEnemyAI 
 {
-    void Attack(int damage);
-    void Move(int speed);
+    void Attack();
+    void Move();
     void ManageState();
+    void Leave();
 }

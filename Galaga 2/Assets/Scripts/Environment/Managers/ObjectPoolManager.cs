@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -55,17 +56,5 @@ public class ObjectPoolManager : MonoBehaviour
     {
         obj.SetActive(false);
         poolDictionary[obj.GetComponent<PrefabIdentifier>().prefab].Enqueue(obj);
-    }
-
-    public void ActivateAll(GameObject prefab, Vector3 referencePos, Quaternion referenceRot)
-    {
-        Queue<GameObject> pool = poolDictionary[prefab];
-        while (pool.Count > 0)
-        {
-            GameObject obj = pool.Dequeue();
-            obj.transform.position = referencePos;
-            obj.transform.rotation = referenceRot;
-            obj.SetActive(true);
-        }
     }
 }

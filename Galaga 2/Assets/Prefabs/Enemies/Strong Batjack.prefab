@@ -60,14 +60,50 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5506938777261597641, guid: 30c9780fcd1f43b4ab6d28ea2a5a178f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 23e09755e49407b44925cb04c6161152, type: 2}
     - target: {fileID: 6036554931438594978, guid: 30c9780fcd1f43b4ab6d28ea2a5a178f, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 0a8070c01e1c0f24b9fbefd326dc49f9, type: 2}
+    - target: {fileID: 6661799108051731843, guid: 30c9780fcd1f43b4ab6d28ea2a5a178f, type: 3}
+      propertyPath: speed
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661799108051731843, guid: 30c9780fcd1f43b4ab6d28ea2a5a178f, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 8471085536838959868, guid: d8ea4d652fb37e3489b89a5b72d69c96, type: 3}
+    - target: {fileID: 6661799108051731843, guid: 30c9780fcd1f43b4ab6d28ea2a5a178f, type: 3}
+      propertyPath: PhaseLimit
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661799108051731843, guid: 30c9780fcd1f43b4ab6d28ea2a5a178f, type: 3}
+      propertyPath: AttackLimit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661799108051731843, guid: 30c9780fcd1f43b4ab6d28ea2a5a178f, type: 3}
+      propertyPath: projectileData
+      value: 
+      objectReference: {fileID: 11400000, guid: 24d5ddcb989f4424287032b62c649c66, type: 2}
+    - target: {fileID: 6661799108051731843, guid: 30c9780fcd1f43b4ab6d28ea2a5a178f, type: 3}
+      propertyPath: attackCooldownDuration
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8665030524932469067, guid: 30c9780fcd1f43b4ab6d28ea2a5a178f, type: 3}
       propertyPath: health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8665030524932469067, guid: 30c9780fcd1f43b4ab6d28ea2a5a178f, type: 3}
+      propertyPath: damageTimer
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8665030524932469067, guid: 30c9780fcd1f43b4ab6d28ea2a5a178f, type: 3}
+      propertyPath: projectileData
+      value: 
+      objectReference: {fileID: 11400000, guid: 24d5ddcb989f4424287032b62c649c66, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -55,7 +55,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (!gameManager.isPaused)
         {
-            SoundManager.PlaySound(SoundType.Shoot, 0.5f);
+            SoundManager.PlaySound(SoundType.PlayerShoot, 0.5f);
             objectPoolManager.ActivateObject(bulletPrefab, firePoint.position, firePoint.rotation);
         }
     }
