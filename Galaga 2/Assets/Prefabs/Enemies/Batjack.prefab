@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6036554931438594978}
   - component: {fileID: 855382412200331612}
   - component: {fileID: 8665030524932469067}
-  - component: {fileID: 680497502221825099}
   - component: {fileID: 6661799108051731843}
   - component: {fileID: 6040053943570693186}
   m_Layer: 0
@@ -191,24 +190,12 @@ MonoBehaviour:
           m_StringArgument: OnDeath
           m_BoolArgument: 0
         m_CallState: 2
+  enemyManager: {fileID: 0}
   health: 50
   damageTimer: 0
   isDying: 0
   deathSound: 3
   volume: 0.5
---- !u!114 &680497502221825099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3932305692910355259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efe049430b73564b8fbf397f012037e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrefabIdentifier
-  prefab: {fileID: 0}
 --- !u!114 &6661799108051731843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +211,6 @@ MonoBehaviour:
   speed: 4
   bullet: {fileID: 8471085536838959868, guid: d8ea4d652fb37e3489b89a5b72d69c96, type: 3}
   attackCooldownDuration: 1.5
-  projectileData: {fileID: 11400000, guid: 94b089c404854af4e9fe5b2ce4fc5b99, type: 2}
   AttackLimit: 2
   PhaseLimit: 4
   attackIndicator: {fileID: 4853543382210435643, guid: 2d5fcda9a9b94c648af8af2131747374, type: 3}

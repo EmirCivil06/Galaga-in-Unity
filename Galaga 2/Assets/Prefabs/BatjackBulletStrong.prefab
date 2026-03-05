@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3417577893767267363}
   - component: {fileID: 2047119227186152465}
   - component: {fileID: 1082494522810502679}
-  - component: {fileID: 2702060277132939315}
   - component: {fileID: 2688391926738430270}
   - component: {fileID: 7660131875048302184}
   m_Layer: 0
@@ -38,6 +37,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2047119227186152465
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -83,6 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -7671945531170686519, guid: d36c692c4115a514d88c716d7d707572, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +93,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &1082494522810502679
 BoxCollider2D:
@@ -140,19 +140,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.16, y: 0.36}
   m_EdgeRadius: 0
---- !u!114 &2702060277132939315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735940327221319484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efe049430b73564b8fbf397f012037e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrefabIdentifier
-  prefab: {fileID: 0}
 --- !u!50 &2688391926738430270
 Rigidbody2D:
   serializedVersion: 5

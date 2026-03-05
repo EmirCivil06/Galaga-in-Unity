@@ -17,15 +17,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Renderer Renderer;
     [Header("Manager'lar")]
-    [SerializeField] private ObjectPoolManager objectPoolManager;
     [SerializeField] private GameManager gameManager;
     private float currentCooldown;
-
-
-    private void Awake()
-    {
-        objectPoolManager = FindFirstObjectByType<ObjectPoolManager>();
-    }
 
     void Start()
     {
@@ -56,7 +49,7 @@ public class PlayerInput : MonoBehaviour
         if (!gameManager.isPaused)
         {
             SoundManager.PlaySound(SoundType.PlayerShoot, 0.5f);
-            objectPoolManager.ActivateObject(bulletPrefab, firePoint.position, firePoint.rotation);
+            ObjectPoolManager.SpawnObject(bulletPrefab, firePoint.position, firePoint.rotation, ObjectPoolManager.PoolType.GameObjects);
         }
     }
 

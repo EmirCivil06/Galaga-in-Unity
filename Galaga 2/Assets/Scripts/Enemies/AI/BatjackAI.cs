@@ -19,16 +19,17 @@ public class BatjackAI : MonoBehaviour, IEnemyAI
     [Header("Saldırı Eventi")]
     public GameObject bullet;
     public float attackCooldownDuration = 1.3f;
-    public ProjectileData projectileData;
     public int AttackLimit, PhaseLimit;
     public ParticleSystem attackIndicator;
+    private ParticleSystem instance;
 
+    // Sağlığı kontrol eden betiği al
     void Awake()
     {
         healthScript = GetComponent<Health>();
     }
 
-
+    // Spawn olduğunda saldırı alanına doğru harekete geç
     void Start()
     {
         currentState = State.Moving;
@@ -38,12 +39,14 @@ public class BatjackAI : MonoBehaviour, IEnemyAI
         attackCooldownDuration += particleDuration;
     }
 
+    // State Makinesi mantığını update içinde devreye sok
     void Update()
     {
         attackCooldown -= Time.deltaTime;
         ManageState();
     }
 
+    // Saldırma metodu
     public void Attack()
     {
         if (currentState != State.Attacking) return;
@@ -52,7 +55,7 @@ public class BatjackAI : MonoBehaviour, IEnemyAI
         if (!isPreparingAttack)
         {
             SoundManager.PlaySound(SoundType.BJackPrepare, 1);
-            Instantiate(attackIndicator, transform.position, Quaternion.identity);
+            instance = ObjectPoolManager.SpawnObject(attackIndicator, transform.position, Quaternion.identity, ObjectPoolManager.PoolType.ParticleSytems);
             preparationTimer = particleDuration;
             isPreparingAttack = true;
         }
@@ -61,9 +64,8 @@ public class BatjackAI : MonoBehaviour, IEnemyAI
 
         if (preparationTimer <= 0f)
         {
-            GameObject bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
+            GameObject bulletInstance = ObjectPoolManager.SpawnObject(bullet, transform.position, Quaternion.identity, ObjectPoolManager.PoolType.GameObjects);
             SoundManager.PlaySound(SoundType.BJackShoot, 1);
-            bulletInstance.GetComponent<EProjectile>().data = projectileData;
             attackCount++;
             attackCooldown = attackCooldownDuration; 
             isPreparingAttack = false; 
@@ -80,6 +82,7 @@ public class BatjackAI : MonoBehaviour, IEnemyAI
         }
     }
 
+    // Hareket etme metodu
     public void Move()
     {
         if (currentState != State.Moving) return;
@@ -93,6 +96,7 @@ public class BatjackAI : MonoBehaviour, IEnemyAI
         }
     }
 
+    // Alandan ayrılma metodu
     public void Leave()
     {
         if (currentState != State.Leaving) return;
@@ -105,6 +109,7 @@ public class BatjackAI : MonoBehaviour, IEnemyAI
         }
     }
 
+    // State Makinesi
     public void ManageState()
     {
         if (healthScript.isDying) 
@@ -124,15 +129,19 @@ public class BatjackAI : MonoBehaviour, IEnemyAI
                 break;       
         }
     }
-
+    // Parametrelere göre düzlemden nokta al
     private Vector3 GetPoint(float width, float height, bool leaving)
     {
         float randomX = Random.Range(-width / 2f, width / 2f);
-        float randomY = leaving? Random.Range(-9, -7.5f) : Random.Range(0, height / 2f);
+        // Eğer State.Leaving ise bool değerine göre dead zone içinde bir alandan nokta al
+        float randomY = leaving ? Random.Range(-9, -7.5f) : Random.Range(0, height / 2f);
         
         return new Vector3(randomX, randomY);
     }
 
+    // Birden fazla kez kullanıyoruz diye bir baz hareket eylemi.
+    // Hem bölgeden ayrılma metodunda hem de hareket etme metodunda aynı
+    // mantığı kullanıyoruz diye var.
     private void InvokeRootMovingAction(float width, float height, bool leaving)
     {
         if (!hasTarget)

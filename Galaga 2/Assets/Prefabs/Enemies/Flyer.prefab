@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6445916869170937894}
   - component: {fileID: 8074175181089322795}
   m_Layer: 0
-  m_Name: Blue Alien
+  m_Name: Flyer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,8 +75,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684c21ddd2b4856428bb71b2f2d4d4c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
-  health: 0
-  playerData: {fileID: 11400000, guid: c9b4e50a4af1be94ba0b34b04546e86c, type: 2}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  enemyManager: {fileID: 0}
+  health: 50
+  damageTimer: 0.1
+  isDying: 0
+  deathSound: 3
+  volume: 0
 --- !u!60 &9037845362998804965
 PolygonCollider2D:
   m_ObjectHideFlags: 0

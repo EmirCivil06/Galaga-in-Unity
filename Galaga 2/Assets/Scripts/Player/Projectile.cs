@@ -3,11 +3,9 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public ProjectileData data;
-    [SerializeField] private ObjectPoolManager objectPoolManager;
 
     private void Awake()
     {
-        objectPoolManager = FindFirstObjectByType<ObjectPoolManager>();
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         if (renderer != null)
             renderer.sprite = data.bulletSprite;
@@ -20,7 +18,7 @@ public class Projectile : MonoBehaviour
         transform.Translate(Vector3.up * data.speed * Time.deltaTime);
         if (transform.position.y > Camera.main.orthographicSize * Camera.main.aspect || transform.position.y < -Camera.main.orthographicSize * Camera.main.aspect)
         {
-            objectPoolManager.DeactivateObject(gameObject);
+            ObjectPoolManager.ReleaseObject(gameObject);
         }
     }
 }

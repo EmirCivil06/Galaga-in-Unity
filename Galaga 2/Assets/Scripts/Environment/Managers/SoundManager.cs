@@ -5,7 +5,7 @@ public enum SoundType
     PlayerShoot,
     BJackPrepare,
     BJackShoot,
-    BJackDie
+    DieDefault
 }
 
 

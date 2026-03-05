@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     public UnityEvent OnDeath;
-    private ObjectPoolManager objectPoolManager;
+    public EnemyManager enemyManager;
     private Color flashColor = Color.white;
     private Material _material;
     private SpriteRenderer _renderer;
@@ -20,16 +20,20 @@ public class Health : MonoBehaviour
     // Girilen fieldlar yoluyla düşman karakterin sağlık değeri güncellenir
     void Awake()
     {
+        enemyManager = FindFirstObjectByType<EnemyManager>();
         _renderer = GetComponent<SpriteRenderer>();
         _material = _renderer.material;
-        objectPoolManager = FindFirstObjectByType<ObjectPoolManager>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Projectile")
+        if (collision.gameObject.CompareTag("Projectile"))
         {
-            Damage(collision, collision.GetComponent<Projectile>().data.damage);
+            var projectile = collision.GetComponent<Projectile>();
+            if (projectile != null)
+            {
+                Damage(collision, projectile.data.damage);
+            }
         }
     }
 
@@ -39,7 +43,7 @@ public class Health : MonoBehaviour
         {
             health -= damage;
             StartCoroutine(DamageFlash());
-            objectPoolManager.DeactivateObject(collision.gameObject);
+            ObjectPoolManager.ReleaseObject(collision.gameObject, ObjectPoolManager.PoolType.GameObjects);
         }
         
         if (health <= 0 && !isDying)
@@ -57,7 +61,7 @@ public class Health : MonoBehaviour
         float elapsedTime = 0f;
         while(elapsedTime < damageTimer)
         {
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.deltaTime * 2;
             float currentFlashAmount = Mathf.Lerp(1f, 0f, elapsedTime / damageTimer);
             _material.SetFloat("_Amount", currentFlashAmount);
             yield return null;
@@ -67,6 +71,7 @@ public class Health : MonoBehaviour
     private void Kill()
     { 
         Destroy(gameObject);
+        enemyManager.RemoveEnemy(gameObject);
         isDying = false;
     }
 }

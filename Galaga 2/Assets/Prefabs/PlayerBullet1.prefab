@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6655005085578682204}
   - component: {fileID: 4230530726496062077}
   - component: {fileID: 5931336665842662240}
-  - component: {fileID: -8883267064378168672}
   m_Layer: 0
   m_Name: PlayerBullet1
   m_TagString: Projectile
@@ -37,6 +36,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6655005085578682204
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -82,6 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -91,7 +92,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4230530726496062077
 MonoBehaviour:
@@ -106,7 +106,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileMovement
   data: {fileID: 11400000, guid: f66414ea58b651c4cbfdb474e2b650f4, type: 2}
-  objectPoolManager: {fileID: 0}
 --- !u!61 &5931336665842662240
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153,16 +152,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8, y: 1.36}
   m_EdgeRadius: 0
---- !u!114 &-8883267064378168672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8529510399654258135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efe049430b73564b8fbf397f012037e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrefabIdentifier
-  prefab: {fileID: 0}
