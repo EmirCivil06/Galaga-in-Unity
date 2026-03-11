@@ -89,6 +89,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5058826229617242003
 MonoBehaviour:
@@ -102,5 +103,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3732060ffff1fab41bb4b22d41e16b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundScript
-  speed: 0.4
+  speed: 0.7
   bgRenderer: {fileID: 5292092765552606505}

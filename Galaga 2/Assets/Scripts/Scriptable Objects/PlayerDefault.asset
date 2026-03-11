@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
   damage: 50
   bulletSprite: {fileID: 3278686328103171976, guid: 6ee2d55c911fc08438dfcf18c9171ea9, type: 3}
-  speed: 10
+  speed: 12

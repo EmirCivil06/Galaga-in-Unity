@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,8 +7,15 @@ public class GameManager : MonoBehaviour
 {
     // Oyunun bazı eylemlerin kontrol eden çekirdek script
     [SerializeField] private InputActionReference pause;
-    public Stack<int> pauseController = new Stack<int>(1);
+    public Stack<int> pauseController = new(1);
     public bool isPaused = false;
+    [Range(45,300)]
+    public int FramesPerSecond = 60;
+
+    void Awake()
+    {
+        Application.targetFrameRate = FramesPerSecond;
+    }
 
     // Update is called once per frame
     void Update()
