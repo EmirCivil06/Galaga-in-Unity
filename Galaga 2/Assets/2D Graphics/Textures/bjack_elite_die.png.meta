@@ -1,22 +1,37 @@
 fileFormatVersion: 2
-guid: 78a49249d86d73a4db0b63a990a4230b
+guid: cec9ac0cf65e9467f8b97d56cc6a7e6a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 936686883191926905
-    second: Batjack_Strong_0
+      213: -355554209614794051
+    second: bjack_elite_die_0
   - first:
-      213: 2327921435546679548
-    second: Batjack_Strong_1
+      213: -4108630720524614628
+    second: bjack_elite_die_1
   - first:
-      213: 6266081612046339269
-    second: Batjack_Strong_2
+      213: -4855800738534518358
+    second: bjack_elite_die_2
   - first:
-      213: -4363714149013962737
-    second: Batjack_Strong_3
+      213: -6182996970224745355
+    second: bjack_elite_die_3
   - first:
-      213: -7476371407422528444
-    second: Batjack_Strong_4
+      213: -2399748740333805323
+    second: bjack_elite_die_4
+  - first:
+      213: 1088054968525256697
+    second: bjack_elite_die_5
+  - first:
+      213: -6921497716099323216
+    second: bjack_elite_die_6
+  - first:
+      213: 7283618536522403596
+    second: bjack_elite_die_7
+  - first:
+      213: -1884629629404087635
+    second: bjack_elite_die_8
+  - first:
+      213: -8807633361771251203
+    second: bjack_elite_die_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -112,13 +127,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Batjack_Strong_0
+      name: bjack_elite_die_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 41
-        width: 24
-        height: 22
+        x: 0
+        y: 9
+        width: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,19 +142,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9703c6ae1c7cffc00800000000000000
-      internalID: 936686883191926905
+      spriteID: db2f3858451d01bf0800000000000000
+      internalID: -355554209614794051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Batjack_Strong_1
+      name: bjack_elite_die_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 45
-        width: 26
+        x: 32
+        y: 7
+        width: 32
         height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -149,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf8f6c636307e4020800000000000000
-      internalID: 2327921435546679548
+      spriteID: c148fddc0263bf6c0800000000000000
+      internalID: -4108630720524614628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Batjack_Strong_2
+      name: bjack_elite_die_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 24
-        width: 30
-        height: 16
+        x: 63
+        y: 0
+        width: 34
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,42 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5cc01abe60895f650800000000000000
-      internalID: 6266081612046339269
+      spriteID: aa1129794fabc9cb0800000000000000
+      internalID: -4855800738534518358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Batjack_Strong_4
+      name: bjack_elite_die_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 11
-        width: 32
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f004da6f919f073c0800000000000000
-      internalID: -4363714149013962737
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Batjack_Strong_3
-      rect:
-        serializedVersion: 2
-        x: 1
+        x: 160
         y: 1
         width: 32
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,8 +208,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44461b301d79e3890800000000000000
-      internalID: -7476371407422528444
+      spriteID: 5f0663e2c3162bed0800000000000000
+      internalID: -2399748740333805323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bjack_elite_die_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 5
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bae836bf76e1ff90800000000000000
+      internalID: -6921497716099323216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bjack_elite_die_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 3
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df9bebf4f1005c580800000000000000
+      internalID: -8807633361771251203
       vertices: []
       indices: 
       edges: []
@@ -225,7 +262,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 902d24de36670464284ba53d279af5d7
+    spriteID: 34e5bfa0dea4c5d569e382fb3e26f260
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +272,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Batjack_Strong_0: 936686883191926905
-      Batjack_Strong_1: 2327921435546679548
-      Batjack_Strong_2: 6266081612046339269
-      Batjack_Strong_3: -7476371407422528444
-      Batjack_Strong_4: -4363714149013962737
+      bjack_elite_die_0: -355554209614794051
+      bjack_elite_die_1: -4108630720524614628
+      bjack_elite_die_2: -4855800738534518358
+      bjack_elite_die_3: -2399748740333805323
+      bjack_elite_die_4: -8807633361771251203
+      bjack_elite_die_5: -6921497716099323216
+      bjack_elite_die_7: 7283618536522403596
+      bjack_elite_die_8: -1884629629404087635
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

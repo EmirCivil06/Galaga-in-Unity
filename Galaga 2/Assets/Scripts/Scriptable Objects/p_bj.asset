@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 684f89d0af835b849b88b2e3fb7b3dec, type: 3}
-  m_Name: BjackStrong
+  m_Name: p_bj
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
-  damage: 2
-  bulletSprite: {fileID: 678234426402457887, guid: eac976dc228651245942baa301db48d8, type: 3}
-  speed: 9.5
+  damage: 1
+  bulletSprite: {fileID: 6644804467268628080, guid: eac976dc228651245942baa301db48d8, type: 3}
+  speed: 8.75

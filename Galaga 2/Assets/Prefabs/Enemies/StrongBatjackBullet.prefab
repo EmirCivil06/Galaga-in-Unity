@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2688391926738430270}
   - component: {fileID: 7660131875048302184}
   m_Layer: 0
-  m_Name: BatjackBulletStrong
+  m_Name: StrongBatjackBullet
   m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

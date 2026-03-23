@@ -121,7 +121,7 @@ public class GridManager : MonoBehaviour
                 cells[r, c].width = cellSize;
                 cells[r, c].height = cellSize;
                 cells[r, c].origin = center;
-                cells[r, c].isFilled = false;
+                cells[r, c].isFilled = true;
             }
         }
     }

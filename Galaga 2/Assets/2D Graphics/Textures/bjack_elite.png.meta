@@ -1,37 +1,22 @@
 fileFormatVersion: 2
-guid: 30d85aefe8e95ea4182c4b9d94547eb3
+guid: c29215f71302da623af219abde31aa62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7975364735145784209
-    second: bJack_die 1_0
+      213: 5157786493354014524
+    second: Batjack_Elite_0
   - first:
-      213: 1925030822866552872
-    second: bJack_die 1_1
+      213: -424217905644694714
+    second: Batjack_Elite_1
   - first:
-      213: 8505179903181856535
-    second: bJack_die 1_2
+      213: -1885425310639174249
+    second: Batjack_Elite_2
   - first:
-      213: 3469023993277300672
-    second: bJack_die 1_3
+      213: 6779003743189019627
+    second: Batjack_Elite_3
   - first:
-      213: -7400890494079619487
-    second: bJack_die 1_4
-  - first:
-      213: -1323697238662607709
-    second: bJack_die 1_5
-  - first:
-      213: -2012249113427363815
-    second: bJack_die 1_6
-  - first:
-      213: 1601218434481013888
-    second: bJack_die 1_7
-  - first:
-      213: 7758300130333269495
-    second: bJack_die 1_8
-  - first:
-      213: -5704289427203704129
-    second: bJack_die 1_9
+      213: -1597772562884422485
+    second: Batjack_Elite_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -127,12 +112,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: die_0
+      name: Batjack_Elite_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 7
-        width: 32
+        x: 4
+        y: 41
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c377ca31d73249740800000000000000
+      internalID: 5157786493354014524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Batjack_Elite_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 45
+        width: 26
         height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -142,20 +149,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6c45775700d15190800000000000000
-      internalID: -7975364735145784209
+      spriteID: 64310baff00ec1af0800000000000000
+      internalID: -424217905644694714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: die_1
+      name: Batjack_Elite_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 24
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79d42dc5baf95d5e0800000000000000
+      internalID: -1885425310639174249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Batjack_Elite_4
       rect:
         serializedVersion: 2
         x: 32
-        y: 7
+        y: 12
         width: 32
-        height: 18
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82883aa855517ba10800000000000000
-      internalID: 1925030822866552872
+      spriteID: beb23dbdcfbd31e50800000000000000
+      internalID: 6779003743189019627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: die_2
+      name: Batjack_Elite_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 33
-        height: 31
+        x: 1
+        y: 2
+        width: 32
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,74 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71f12ff3f08780670800000000000000
-      internalID: 8505179903181856535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: die_4
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 3
-        width: 32
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 16ea1d6ae41ca4990800000000000000
-      internalID: -7400890494079619487
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: die_3
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 1
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fbab1831dfa46d0b0800000000000000
-      internalID: -5704289427203704129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: die_5
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 4
-        width: 32
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 258299786332630489a119538eb29054
-      internalID: -1043517300
+      spriteID: ba49865c15293d9e0800000000000000
+      internalID: -1597772562884422485
       vertices: []
       indices: 
       edges: []
@@ -262,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: afaf4cd8706bb8d4aa6b5e90af5d66c9
+    spriteID: c4bbd62ac27b08e049fdc848f9acbb24
     internalID: 0
     vertices: []
     indices: 
@@ -272,17 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bJack_die 1_3: 3469023993277300672
-      bJack_die 1_5: -1323697238662607709
-      bJack_die 1_6: -2012249113427363815
-      bJack_die 1_7: 1601218434481013888
-      bJack_die 1_8: 7758300130333269495
-      die_0: -7975364735145784209
-      die_1: 1925030822866552872
-      die_2: 8505179903181856535
-      die_3: -5704289427203704129
-      die_4: -7400890494079619487
-      die_5: -1043517300
+      Batjack_Elite_0: 5157786493354014524
+      Batjack_Elite_1: -424217905644694714
+      Batjack_Elite_2: -1885425310639174249
+      Batjack_Elite_3: -1597772562884422485
+      Batjack_Elite_4: 6779003743189019627
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

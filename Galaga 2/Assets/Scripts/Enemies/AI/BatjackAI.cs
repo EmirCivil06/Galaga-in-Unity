@@ -64,7 +64,7 @@ public class BatjackAI : MonoBehaviour, IEnemyAI
 
         if (preparationTimer <= 0f)
         {
-            GameObject bulletInstance = ObjectPoolManager.SpawnObject(bullet, transform.position, Quaternion.identity, ObjectPoolManager.PoolType.GameObjects);
+            GameObject bulletInstance = ObjectPoolManager.SpawnObject(bullet, transform.position - new Vector3(0f, 0.065f), Quaternion.identity, ObjectPoolManager.PoolType.GameObjects);
             SoundManager.PlaySound(SoundType.BJackShoot, 1);
             attackCount++;
             attackCooldown = attackCooldownDuration; 

@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: aa88fd112cd0e6447bc92dd4a77a0ba1
+guid: de35c0bc6d4b3cf46a733656d7cbb502
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2989410130186204237
-    second: Alien_Air3_0
+      213: 7572349643719166006
+    second: Batjack_0
+  - first:
+      213: -2025647612683515228
+    second: Batjack_1
+  - first:
+      213: 6173267709293800616
+    second: Batjack_2
+  - first:
+      213: -8380687020226701821
+    second: Batjack_3
+  - first:
+      213: -1718706645099749390
+    second: Batjack_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Alien_Air3_0
+      name: Batjack_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 288
-        height: 248
+        x: 4
+        y: 42
+        width: 24
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d44f3b1cca48c7920800000000000000
-      internalID: 2989410130186204237
+      spriteID: 638cfe481e3661960800000000000000
+      internalID: 7572349643719166006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Batjack_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 46
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa81e58a3473e3e0800000000000000
+      internalID: -2025647612683515228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Batjack_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 25
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aca8d3364adba550800000000000000
+      internalID: 6173267709293800616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Batjack_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 13
+        width: 32
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30619a1de81d1bb80800000000000000
+      internalID: -8380687020226701821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Batjack_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3
+        width: 32
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ffd9b1996de528e0800000000000000
+      internalID: -1718706645099749390
       vertices: []
       indices: 
       edges: []
@@ -125,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d03da4bee21b64b40ae20f7187867edb
+    spriteID: fb5cd7a9d645df841b0062905712469f
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Alien_Air3_0: 2989410130186204237
+      Batjack_0: 7572349643719166006
+      Batjack_1: -2025647612683515228
+      Batjack_2: 6173267709293800616
+      Batjack_3: -1718706645099749390
+      Batjack_4: -8380687020226701821
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
