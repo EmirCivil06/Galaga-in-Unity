@@ -27,6 +27,7 @@ public class BatjackAI : MonoBehaviour, IEnemyAI
     void Awake()
     {
         healthScript = GetComponent<Health>();
+        // a
     }
 
     // Spawn olduğunda saldırı alanına doğru harekete geç
