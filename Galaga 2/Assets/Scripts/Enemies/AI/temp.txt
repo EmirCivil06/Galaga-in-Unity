@@ -1,0 +1,72 @@
+        if (currentState != State.Moving ||grid == null || grid.cells == null)
+        {
+            Debug.Log("Izgarayı bulamadı");
+            return;     
+        }
+
+        // Hücreye yerleştikten sonra grid hareket/resize yaparken de merkezde kalmalıyız.
+        if (hasFilledCell && claimedRow >= 0 && claimedCol >= 0)
+        {
+            claimedCellCenter = grid.cells[claimedRow, claimedCol].origin;
+            transform.position = claimedCellCenter;
+            return;
+        }
+
+        // 1) First run: find and claim an empty cell.
+        if (!hasClaimedCell)
+        {
+            
+            Cell[,] gridCells = grid.cells;
+            int rows = gridCells.GetLength(0);
+            int cols = gridCells.GetLength(1);
+
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < cols; c++)
+                {
+                    // Cell is a struct: read-copy-write back into the array.
+                    Cell cell = gridCells[r, c];
+                    if (cell.isFilled || cell.isTargeted)
+                    {
+                        continue;
+                    }
+
+                    cell.isTargeted = true;
+                    gridCells[r, c] = cell;
+
+                    claimedRow = r;
+                    claimedCol = c;
+                    claimedCellCenter = cell.origin;
+                    hasClaimedCell = true;
+                    Debug.Log("Hücre aldı");
+                    break;
+                }
+
+                if (hasClaimedCell) break;
+            }
+
+            // No available cell yet; try again next frame.
+            if (!hasClaimedCell) return;
+        }
+
+        // 2) Move towards the claimed cell.
+        // Keep updating the target from the grid so the enemy can follow grid motion/resize.
+        if (claimedRow >= 0 && claimedCol >= 0)
+        {
+            claimedCellCenter = grid.cells[claimedRow, claimedCol].origin;
+        }
+
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            claimedCellCenter,
+            Time.deltaTime * moveSpeed
+        );
+
+        // 3) When arrived, mark the cell as filled (once).
+        if (!hasFilledCell && Vector3.Distance(transform.position, claimedCellCenter) <= arriveThreshold)
+        {
+            Cell filledCell = grid.cells[claimedRow, claimedCol];
+            filledCell.isFilled = true;
+            grid.cells[claimedRow, claimedCol] = filledCell;
+            hasFilledCell = true;
+        }

@@ -1,9 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-// Düşmanların yerleşebileceği ızgaranın beyni
+// Değiştirilmiş ızgara betiği
 public class GridManager : MonoBehaviour
 {
-    // Gidebileceği tüm yönler
+    // State Machine için yön
     private enum Direction
     {
         Left,
@@ -12,123 +13,114 @@ public class GridManager : MonoBehaviour
         None
     }
 
-    [Header("Izgaranın Temel Komponentleri")]
-    // Satır sütun sayısı
-    public int rows = 2;
-    public int columns = 4;
-    // Hücre boyutu ve hücre matrisi
-    public float cellSize = 1f;
-    private Cell[,] cells;
-    // Tur atma alanının köşe noktaları
+    // Değişkenler
+    [Header("Izgara Hücre Ayarları")]
+    [SerializeField] private Cell cellPrefab;
+    [SerializeField] private int rows = 2, columns = 8;
+    [SerializeField] private float spacing = 1f;
+    [SerializeField] private float targetSpacingSize = 1.5f;
+
+    [Header("Izgaranın Hareket Ayarları")]
+    [SerializeField] private int lapInterval = 2;
+    [SerializeField] private float speed = 0.75f;
+    [SerializeField] private float zigZagLength = 2f;
+    [SerializeField] private int growAndShrinkLim = 2;
+    [SerializeField] private float growShrinkDuration = 1.5f;
+
+    // Sınıfa özel alanlar
+    public Cell[,] grid;
     private Vector3 leftPoint, rightPoint, start;
-
-    [Header("Izgaranın Hareket Komponentleri")]
-    public int lapInterval = 2; // Özel hareket yapmadan önce atması gereken tur sayısı
-    public float speed = 0.75f; // Hareket hızı
-    public float zigZagLength = 2f; // Sağ ve sol köşenin ortaya olan uzaklığı
-    // Büyüyüp küçülme eyleminin değişkenleri
-    public int growAndShrinkLim = 2;
-    public float growShrinkDuration = 1.5f;
-
-    // Sınıfa özel fieldlar
-    private int lapCounter = 0; // Tur atma sayacı
-    private int sizeActionCount; // Yapılabilecek büyüyüp küçülebilme eylemlerinin toplam sayısı
-    private Direction currentDir = Direction.Right; // Şu anki yön
-    private float originalCellSize;
+    private int lapCounter = 0;
+    private Direction currentDir = Direction.Right;
+    private float growShrinkTimer = 0f;
     private bool flag = false;
     private int counter;
+    private float originalSize;
+    private int sizeActionCount;
+    private bool isAnyFilled = false;
 
-    // Büyüyüp küçülme animasyonu için özel zamanlayıcı
-    private float growShrinkTimer = 0f;
-
-    // Awake ile erkenden oluşturma
-    void Awake()
+    // OnEnable
+    void OnEnable()
     {
-        // Değerlerin önbelleklenmesi
+        // Eventi dinlemeye başla
+        Cell.OnAnyEnemyPlaced += StartMoving;
+    }
+
+    // OnDisable
+    void OnDisable()
+    {
+        // Eventi dinlemeyi bırak
+        Cell.OnAnyEnemyPlaced -= StartMoving;
+    }
+
+    // Start
+    void Start()
+    {
+        sizeActionCount = growAndShrinkLim * 2;
+        originalSize = spacing;
         leftPoint = transform.position - new Vector3(zigZagLength, 0f, 0f);
         rightPoint = transform.position + new Vector3(zigZagLength, 0f, 0f);
         start = transform.position;
-        originalCellSize = cellSize;
-        sizeActionCount = growAndShrinkLim * 2; // 2 defa büyüyüp küçülmesini istiyorsak 2 * 2 = 4
-        counter = 0;
-    }
-
-    // Start ile oluşturma
-    void Start()
-    {
         InitGrid();
     }
 
-    // Update ile güncelleme
+    // Update
     void Update()
     {
-        // State machine
-        if (IsFull()) ManageGridState();
-
-        // Sadece transform değiştiğinde hücreleri güncelle
-        if (transform.hasChanged)
-        {
-            UpdateCellPositions();
-            transform.hasChanged = false;
-        }
+        ManageGridState();
     }
 
-    // Grid dolu mu değil mi kontrolü
-    private bool IsFull()
+    // Izgarayı yapılandır
+    private void InitGrid()
     {
-        int filledCells = 0;
+        grid = new Cell[rows, columns];
+
         for (int r = 0; r < rows; r++)
         {
             for (int c = 0; c < columns; c++)
             {
-                if (cells[r, c].isFilled)
+                // Boş ise doldurulacak
+                if (grid[r, c] == null)
                 {
-                    filledCells++;
+                    grid[r, c] = Instantiate(cellPrefab, transform);
+                    grid[r, c].Size = 1f;
                 }
             }
         }
-        if (filledCells == rows * columns)
-        {
-            return true;
-        }
-        else return false;
+        // Hücreler oluştuktan sonra pozisyonlarını ayarla
+        UpdateGrid();
     }
 
-    // Hücreleri oluşturup boş hücreleri dolduruyoruz
-    private void InitGrid()
+    // Izgarayı güncelle
+    private void UpdateGrid()
     {
-        cells = new Cell[rows, columns];
-        UpdateCellPositions();
-    }
-
-    private void UpdateCellPositions()
-    {
-        // Hücreler yoksa güvenlik için eylemde bulunmuyoruz
-        if (cells == null) return;
-
-        // Grid merkezini belirliyoruz
-        Vector3 pivotOffset = new Vector3(columns * cellSize * 0.5f, rows * cellSize * 0.5f, 0f);
-        Vector3 origin = transform.position - pivotOffset;
-
-        // Hücrelere atama yapma
         for (int r = 0; r < rows; r++)
         {
             for (int c = 0; c < columns; c++)
             {
-                Vector3 center = origin + new Vector3(c * cellSize + cellSize * 0.5f, r * cellSize + cellSize * 0.5f, 0f);
-
-                // Cell bir struct olduğu için doğrudan değer atayabiliriz
-                cells[r, c].width = cellSize;
-                cells[r, c].height = cellSize;
-                cells[r, c].origin = center;
-                cells[r, c].isFilled = true;
+                if (grid[r, c] != null)
+                {
+                    // Pozisyonu ve boyutu yeniden hesaplama
+                    grid[r, c].transform.localPosition = new Vector3(
+                        (c + 0.5f - columns * 0.5f) * spacing,
+                        (r + 0.5f - rows * 0.5f) * spacing,
+                        0f);
+                }
             }
         }
     }
-    // State machine
+
+    // Event'in tetikleyeceği metot
+    private void StartMoving()
+    {
+        isAnyFilled = true;
+    }
+
+    // Izgaranın beyni
     private void ManageGridState()
     {
-        // Gittiği yöne göre Update içinde devamlı olarak metot çağırma
+        // Kolaylık için state machine
+        if (!isAnyFilled) return;
         switch (currentDir)
         {
             case Direction.Left:
@@ -141,12 +133,12 @@ public class GridManager : MonoBehaviour
                 Middle(speed);
                 break;
             case Direction.None:
-                GrowAndShrink(1.5f, growShrinkDuration);
+                GrowAndShrink(targetSpacingSize, growShrinkDuration);
                 break;
         }
     }
 
-    // Sola gitme
+    // Sola gitme logic'i
     private void Left(float speed)
     {
         transform.position = Vector3.MoveTowards(transform.position, leftPoint, Time.deltaTime * speed);
@@ -159,49 +151,49 @@ public class GridManager : MonoBehaviour
                 currentDir = Direction.Middle;
                 lapCounter = 0;
             }
+            // Eğer sınıra ulaşmadıysan döngüye devam et
             else currentDir = Direction.Right;
         }
     }
 
-    // Sağa gitme metodu
+    // Sağa gitme logic'i
     private void Right(float speed)
     {
         transform.position = Vector3.MoveTowards(transform.position, rightPoint, Time.deltaTime * speed);
         if (transform.position == rightPoint) currentDir = Direction.Left;
     }
 
-    // Ortaya gitme metodu
+    // Döngüyü tamamladıktan sonra ortaya yönelme
     private void Middle(float speed)
     {
         transform.position = Vector3.MoveTowards(transform.position, start, Time.deltaTime * speed);
-        // Ortaya geldiğinde yönü None olarak ayarlanıyor ki başka yere gitmeye çalışmasın
         if (transform.position == start)
         {
+            // Gidecek yönü yok
             currentDir = Direction.None;
             growShrinkTimer = 0f; // Büyüme evresine geçerken büyütme sayacını sıfıtla
         }
     }
 
-    // Büyüme ve küçülme eyleminden sorumlu metot
+    // Hareket döngüsü tamamlandıktan sonra özel hareket
     private void GrowAndShrink(float targetSize, float duration)
     {
-        // Zamanlayıcıyı manuel olarak artır
         growShrinkTimer += Time.deltaTime;
 
-        // Mathf.PingPong'a Time.time yerine kendi sayacımızı veriyoruz
+        // Mathf.PingPong ile sınır değer arasında git gel
         float t = Mathf.PingPong(growShrinkTimer, duration) / duration;
-        cellSize = Mathf.Lerp(originalCellSize, targetSize, t);
+        spacing = Mathf.Lerp(originalSize, targetSize, t);
 
-        UpdateCellPositions(); // Boyut değiştiği için güncelle
+        UpdateGrid(); // Boyut değiştiği için güncelle
 
-        // Kesme hatasıyla beraber kaç defa büyüyüp küçüldü onu sayıyoz
-        if (!flag && Mathf.Abs(cellSize - targetSize) < 0.01f)
+        // Yapılan hareket sayısı
+        if (!flag && Mathf.Abs(spacing - targetSize) < 0.01f)
         {
             flag = true;
             counter++;
         }
 
-        if (flag && Mathf.Abs(cellSize - originalCellSize) < 0.01f)
+        if (flag && Mathf.Abs(spacing - originalSize) < 0.01f)
         {
             flag = false;
             counter++;
@@ -211,52 +203,35 @@ public class GridManager : MonoBehaviour
         if (counter >= sizeActionCount)
         {
             currentDir = Direction.Right;
-            cellSize = originalCellSize;
+            spacing = originalSize;
             counter = 0;
             growShrinkTimer = 0f; // İşlem bitince temizle
         }
     }
 
-    // Editör oynatmıyorken
-    void OnValidate()
+    // Boş hücre bulma algoritması
+    private Cell FindEmptyCell()
     {
-        if (rows > 0 && columns > 0 && Application.isPlaying)
-        {
-            // InitGrid'i editör modunda ve editör oynuyor iken çağır
-            UpdateCellPositions();
-            // Güncelleme metodunu editör modunda çağırmak performansı düşürür. (Gemini)
-        }
-    }
-
-    void OnDrawGizmos()
-    {
-        // cells null ise hata vermemesi için güvenlik kontrolü
-        if (cells == null) return;
-
+        // Hücreleri tarar ve boş hücreyi bulur
         for (int r = 0; r < rows; r++)
         {
             for (int c = 0; c < columns; c++)
             {
-                Gizmos.color = Color.white;
-                Gizmos.DrawWireCube(cells[r, c].origin, new Vector3(cells[r, c].width, cells[r, c].height));
-                Gizmos.DrawSphere(cells[r, c].origin, cellSize * 0.05f);
+                if (grid[r, c] != null && !grid[r, c].Occupied && !grid[r, c].Targeted)
+                {
+                    grid[r, c].Targeted = true;
+                    return grid[r, c];
+                }
+                    
             }
         }
+        return null;
     }
-}
 
-// Hücre struct'ı. Normalde sınıf yapısını kullanıyorduk ama Gemini gc açısından struct daha iyi dedi
-public struct Cell
-{
-    public float width, height;
-    public Vector3 origin;
-    public bool isFilled;
-
-    public Cell(float size, Vector3 origin)
+    // Boş hücre seçip bu hücrenin konumunu verir
+    public Vector3 GiveCell()
     {
-        width = size;
-        height = size;
-        this.origin = origin;
-        isFilled = false;
+        Cell emptyCell = FindEmptyCell();
+        return emptyCell.gameObject.transform.position;
     }
 }

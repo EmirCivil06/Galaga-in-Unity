@@ -123,3 +123,7 @@ secrets.json
 *.secret
 .env
 .env.*
+
+# CC elementleri
+CLAUDE.md
+.claude

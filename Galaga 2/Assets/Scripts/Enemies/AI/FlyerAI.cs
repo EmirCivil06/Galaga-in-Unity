@@ -4,7 +4,17 @@ public class FlyerAI : MonoBehaviour , IEnemyAI
 {
     private State currentState;
     private Health healthScript;
-    private Vector2Int targetCell;
+ // public GridManager grid;
+
+/*  [Header("Movement")]
+    [SerializeField] private float moveSpeed = 4f;
+    [SerializeField] private float arriveThreshold = 0.05f;
+
+    private bool hasClaimedCell = false;
+    private bool hasFilledCell = false;
+    private int claimedRow = -1;
+    private int claimedCol = -1;
+    private Vector3 claimedCellCenter; */
     void Awake()
     {
         healthScript = GetComponent<Health>();
@@ -15,19 +25,23 @@ public class FlyerAI : MonoBehaviour , IEnemyAI
         currentState = State.Moving;
     }
 
+    void Update(){
+        ManageState();
+    }
+
     public void Attack()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Metot Kurulmadı");
     }
 
     public void Leave()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Metot Kurulmadı");
     }
 
     public void Move()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Metot Kurulmadı");
     }
 
     public void ManageState()
